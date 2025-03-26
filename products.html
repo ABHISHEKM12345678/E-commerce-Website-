@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div align="center">
+	<table border="1">
+		<tr>
+		<th>name</th>
+		<th>brand</th>
+		<th>size</th>
+		<th>description</th>
+		<th>stock</th>
+		<th>price</th>
+		<th>picture</th>
+		<th>edit</th>
+		<th>delete</th>
+		</tr>
+		<tr th:each="product:${list}">
+		
+			<td th:text="${product.name}"></td>
+			<td th:text="${product.brand}"></td>
+			<td th:text="${product.size}"></td>
+			<td th:text="${product.description}"></td>
+			<td th:text="${product.stock}"></td>
+			<td th:text="${product.price}"></td>
+			<td><img height="100px" th:src="'data:image/jpeg;base64,' + ${product.base64Image()}"></td>
+			<td><a th:href="'/edit/'+${product.id}"> <button>edit</button></a></td>
+			<td><a th:href="'/delete/'+${product.id}"><button>delete</button></a></td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+</head>
+<body>
+    <h2>Reset Password</h2>
+
+   <form th:action="@{/resetpwd}" method="post">
+    <input type="hidden" name="id" th:value="${id}" />
+    <label for="password">New Password:</label>
+    <input type="password" id="password" name="password" required />
+    
+    <button type="submit">Reset Password</button>
+</form>
+
+
+    <p style="color:red;">${fail}</p> 
+    <p style="color:green;">${pass}</p>
+
+</body>
+</html>

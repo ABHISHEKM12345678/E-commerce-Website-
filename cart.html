@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <div align="center">
+        <h1>Manage Products</h1>
+        <table border="1">
+            <tr>
+                <th>picture</th>
+                <th>Product Name</th>
+                <th>Size</th>
+                <th>Price</th>
+                <th>Decrease</th>
+                <th>Quantity</th>
+                <th>Increase</th>
+                <th>Total Price</th>
+               
+            </tr>
+
+            <tr th:each="item:${items}">
+                <img height="100px" width="100px" th:src="'data:image/jpeg;base64,'+${item.base64Image()}">
+                <td th:text="${item.brand}+' '+${item.name}"></td>
+                <td th:text="${item.size}"></td>
+                <td th:text="${item.price}+'&#8377'"></td>
+                <td><button>-</button></td>
+                <td th:text="${item.quantity}"></td>
+                <td><button>+</button></td>
+                <td th:text="${item.price} + ' ₹'"></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <h3>Total Price: <span th:text="${tp}"></span> &#8377</h3>
+        <br><a href="/proceed"><button>Proceed to Pay</button></a>
+        <br>
+        <br>
+        <a href="javascript:void(0);" onclick="window.history.back();">
+    <button>Back</button>
+             </a>
+    </div>
+</body>
+</html>
